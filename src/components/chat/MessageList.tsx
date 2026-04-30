@@ -8,12 +8,13 @@ import { MarkdownRenderer } from "./MarkdownRenderer";
 interface MessageListProps {
   messages: Message[];
   isLoading?: boolean;
+  inputActive?: boolean;
 }
 
-export function MessageList({ messages, isLoading }: MessageListProps) {
+export function MessageList({ messages, isLoading, inputActive }: MessageListProps) {
   if (messages.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full px-4 text-center">
+      <div className={`flex flex-col items-center h-full px-4 text-center ${inputActive ? "justify-start pt-8" : "justify-center"}`}>
         <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 mb-4 shadow-sm">
           <Bot className="h-7 w-7 text-blue-600" />
         </div>
